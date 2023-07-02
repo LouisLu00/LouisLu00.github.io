@@ -1,0 +1,13 @@
+img.LaInfo{
+    width:200px;
+    height:200px;
+    object-fit: cover;
+}
+
+div{
+    text-align: center;
+    display: grid;
+    justify-content: center; /* centers horizontally */
+    align-content: center; /* centers vertically */
+    /* height: 100vh; */
+}
