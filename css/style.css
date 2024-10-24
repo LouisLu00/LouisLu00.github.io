@@ -1053,3 +1053,41 @@ section {
 #footer .credits a:hover {
     color: #008df1;
 }
+
+.projects-section {
+    margin: 20px;
+    padding: 20px;
+}
+
+.project {
+    margin-bottom: 40px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.project-title a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-size: 1.5em;
+}
+
+.project-title a:hover {
+    text-decoration: underline;
+}
+
+.project-description {
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+.project-technologies {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.project-technologies li {
+    font-size: 0.9em;
+    color: #7f8c8d;
+}
