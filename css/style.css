@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0px 2px 15px rgba(36, 50, 93, 0.06);
 }
 #header .logo {
-    font-size: 28px;
+    font-size: 2rem;
     margin: 0;
     padding: 0;
     line-height: 1;
@@ -117,7 +117,7 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: space-between;
     padding: 10px 0 10px 30px;
     font-family: "Poppins", sans-serif;
-    font-size: 15px;
+    font-size: 1.5rem;
     font-weight: 500;
     color: #2b3c6f;
     white-space: nowrap;
@@ -478,7 +478,8 @@ section {
 
 
 .breadcrumbs {
-    padding: 15px 0;
+    padding: 15px;
+    padding-bottom: 10px;
     background: #f5f7fb;
     min-height: 40px;
     margin-top: 70px;
@@ -489,7 +490,7 @@ section {
     }
 }
 .breadcrumbs h2 {
-    font-size: 28px;
+    font-size: 2rem;
     margin-bottom: 0;
     font-weight: 300;
 }
@@ -499,7 +500,7 @@ section {
     list-style: none;
     padding: 0;
     margin: 0;
-    font-size: 14px;
+    font-size: 1.3rem;
 }
 .breadcrumbs ol li + li {
     padding-left: 10px;
@@ -693,39 +694,7 @@ section {
 /*--------------------------------------------------------------
 # Courses
 --------------------------------------------------------------*/
-.Courses .coursename {
-    font-size: 30;
-    padding: 0;
-    margin: 0 0 20px 0;
-    margin-top: -5px;
-    color: #41494C;
-}
-/* .Courses .row{
-  border: 0;
-  padding: 0 -10px;
-  margin-bottom: 60px;
-  position: relative;
-} */
 
-.Courses {
-    font-size: 17px;
-    padding: 15px;
-    margin-top: 5px;
-    margin-left: 20px;
-}
-
-.Courses .preCourse {
-    padding: 15px;
-    margin-top: 10px;
-    margin-left: 20px;
-}
-
-.Courses .course-title {
-    font-size: 25px;
-    font-weight: bold;
-    margin-bottom: 30px;
-    color: black;
-}
 
 .gallery .gallery-item {
     margin-bottom: 30px;
@@ -1052,47 +1021,5 @@ section {
 }
 #footer .credits a:hover {
     color: #008df1;
-}
-
-.projects-section {
-    margin: 20px;
-    padding: 20px;
-}
-
-.project {
-    margin-bottom: 40px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-}
-
-.project-title a {
-    text-decoration: none;
-    color: #2c3e50;
-    font-size: 1.5em;
-}
-
-.project-title a:hover {
-    text-decoration: underline;
-}
-
-.project-description {
-    font-size: 1em;
-    margin: 10px 0;
-}
-
-.project-technologies {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.project-technologies li {
-    font-size: 0.9em;
-    color: #7f8c8d;
-}
-
-.experience {
-    padding: 15px;
 }
 
