@@ -1,4 +1,4 @@
-.Courses .coursename {
+.coursename {
     font-size: 1.3rem;
     padding: 0;
     margin: 0 0 20px 0;
@@ -6,27 +6,20 @@
     color: #41494C;
 }
 
-.Courses .row{
+.row{
   border: 0;
   padding: 0 -10px;
   margin-bottom: 60px;
   position: relative;
 }
 
-.Courses {
-    font-size: 17px;
-    padding: 15px;
-    margin-top: 5px;
-    margin-left: 20px;
-}
-
-.Courses .preCourse {
+.preCourse {
     padding: 15px;
     margin-top: 10px;
     margin-left: 20px;
 }
 
-.Courses .course-title {
+.course-title {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 30px;

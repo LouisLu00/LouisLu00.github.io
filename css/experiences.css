@@ -1,4 +1,10 @@
-/* experience-card */
+.body {
+    background: #fff;
+}
+#header-placeholder {
+    margin-bottom: 20px;
+}
+
 .experience-card {
     background-color: #fff;
     border-radius: 8px;

@@ -28,6 +28,9 @@
     <link href="/css/style.css" rel="stylesheet">
     <link href="/css/experiences.css" rel="stylesheet">
 
+    <!-- Sidebar CSS -->
+    <link href="/css/sidebar.css" rel="stylesheet">
+
     <!-- =======================================================
     * Template Name: MeFamily - v4.7.0
     * Template URL: https://bootstrapmade.com/family-multipurpose-html-bootstrap-template-free/
@@ -43,163 +46,174 @@
 <div id="header-placeholder"></div>
 
 <script>
-    fetch('/components/header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('header-placeholder').innerHTML = data;
-        });
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Load header
+        fetch('/components/header.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+
+                // 2. Now that the header is in place, and breadcrumbs are in the DOM,
+                //    measure their combined height:
+                const hdr = document.querySelector('#header');
+                const bc  = document.getElementById('breadcrumbs');
+                const totalOffset =
+                    (hdr ? hdr.getBoundingClientRect().height : 0) +
+                    (bc  ? bc .getBoundingClientRect().height : 0);
+
+                document.documentElement.style.setProperty(
+                    '--sidebar-offset-top', `${totalOffset}px`
+                );
+
+                // 3. Finally load the sidebar
+                return fetch('/components/sidebar.html');
+            })
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('sidebar-placeholder').innerHTML = html;
+            })
+            // 4. You can load footer whenever you like
+            .then(() => fetch('/components/footer.html'))
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            });
+    });
 </script>
 
-<main id="main">
-    <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
-        <div class="container">
 
-            <div class="d-flex justify-content-between align-items-center">
-                <h2>Experiences</h2>
-                <ol>
-                    <li><a href="/index.html">Home</a></li>
-                    <li>Experiences</li>
-                </ol>
-            </div>
+<div class="content-wrapper">
+    <!-- Sidebar placeholder -->
+    <div id="sidebar-placeholder"></div>
 
-        </div>
-    </section><!-- End Breadcrumbs -->
-
-    <section id="Experience">
-        <div class="container">
-            <div class="experience-card">
-                <div class="experience-header">
-                    <h3 class="company">
-                        <a href="https://www.ptc.com/en/products/onshape" target="_blank" rel="noopener noreferrer">Onshape by PTC</a>
-                    </h3>
-                    <p class="position">Release Engineer Intern</p>
-                    <p class="location">Boston, MA</p>
-                    <p class="date">Jun 2025 – Aug 2025</p>
+    <main id="main">
+        <section id="Experience">
+            <div class="container">
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3 class="company">
+                            <a href="https://www.ptc.com/en/products/onshape" target="_blank" rel="noopener noreferrer">Onshape by PTC</a>
+                        </h3>
+                        <p class="position">Release Engineer Intern</p>
+                        <p class="location">Boston, MA</p>
+                        <p class="date">Jun 2025 – Aug 2025</p>
+                    </div>
                 </div>
-            </div>
-            <div class="experience-card">
-                <div class="experience-header">
-                    <h3 class="company">
-                        <a href="https://www.lithiumcredit.com/" target="_blank" rel="noopener noreferrer">Lithium</a>
-                    </h3>
-                    <p class="position">Software Engineer Intern</p>
-                    <p class="location">New York, NY</p>
-                    <p class="date">Aug 2024 – Feb 2025</p>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3 class="company">
+                            <a href="https://www.lithiumcredit.com/" target="_blank" rel="noopener noreferrer">Lithium</a>
+                        </h3>
+                        <p class="position">Software Engineer Intern</p>
+                        <p class="location">New York, NY</p>
+                        <p class="date">Aug 2024 – Feb 2025</p>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>
+                            Spearheaded end-to-end development for a credit card registration and customization platform, using <strong> Django </strong>
+                            and <strong> React (TypeScript) </strong> for a fully responsive, user-friendly experience; ensured robust deployment on AWS
+                            using leveraging <strong>Elastic Load Balancers </strong> and <strong>Auto-Scaling Group </strong> to adjust resources based
+                            on real-time traffic patterns, reducing the projected cost by 30%.
+                        </li>
+                        <li>
+                            Built a <strong> Jenkins-based CI/CD pipeline </strong>, automating testing and deployments across multiple environments,
+                            resulting in a 50% increase in deployment frequency and accelerated product feature delivery and bug fix resolution, reducing time-to-market.
+                        </li>
+                        <li>
+                            Innovated a credit personalization engine in <strong> Python </strong>, enabling users to customize rewards and perks based
+                            on their transaction data and preferences; integrated interchange fee calculation to balance user benefits with company revenue goals.
+                        </li>
+                        <li>
+                            Utilized <strong> Plaid API </strong> for real-time financial data syncing and implemented <strong> Databricks </strong> to process
+                            large volumes of user transaction data at scale, enabling personalized insights and driving a 20% increase in user engagement and
+                            customer retention.
+                        </li>
+                        <li>
+                            Designed and implemented <strong> webhook </strong> functionality for instant data synchronization, enabling real-time updates to
+                            personalization algorithms based on emerging transactions; improved personalization accuracy and increased daily active users by 15%.
+                        </li>
+                    </ul>
                 </div>
-                <ul class="responsibilities">
-                    <li>
-                        Spearheaded end-to-end development for a credit card registration and customization platform, using <strong> Django </strong>
-                        and <strong> React (TypeScript) </strong> for a fully responsive, user-friendly experience; ensured robust deployment on AWS
-                        using leveraging <strong>Elastic Load Balancers </strong> and <strong>Auto-Scaling Group </strong> to adjust resources based
-                        on real-time traffic patterns, reducing the projected cost by 30%.
-                    </li>
-                    <li>
-                        Built a <strong> Jenkins-based CI/CD pipeline </strong>, automating testing and deployments across multiple environments,
-                        resulting in a 50% increase in deployment frequency and accelerated product feature delivery and bug fix resolution, reducing time-to-market.
-                    </li>
-                    <li>
-                        Innovated a credit personalization engine in <strong> Python </strong>, enabling users to customize rewards and perks based
-                        on their transaction data and preferences; integrated interchange fee calculation to balance user benefits with company revenue goals.
-                    </li>
-                    <li>
-                        Utilized <strong> Plaid API </strong> for real-time financial data syncing and implemented <strong> Databricks </strong> to process
-                        large volumes of user transaction data at scale, enabling personalized insights and driving a 20% increase in user engagement and
-                        customer retention.
-                    </li>
-                    <li>
-                        Designed and implemented <strong> webhook </strong> functionality for instant data synchronization, enabling real-time updates to
-                        personalization algorithms based on emerging transactions; improved personalization accuracy and increased daily active users by 15%.
-                    </li>
-                </ul>
-            </div>
 
-            <div class="experience-card">
-                <div class="experience-header">
-                    <h3 class="company">Nell Hodgson Woodruff School of Nursing</h3>
-                    <p class="position">Machine Learning Researcher</p>
-                    <p class="location">Atlanta, GA</p>
-                    <p class="date">Jan 2023 – May 2024</p>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3 class="company">Nell Hodgson Woodruff School of Nursing</h3>
+                        <p class="position">Machine Learning Researcher</p>
+                        <p class="location">Atlanta, GA</p>
+                        <p class="date">Jan 2023 – May 2024</p>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>
+                            Pioneered and optimized a hypergraph neural network with self-supervised learning in <strong> PyTorch </strong>, achieving a 2% AUC gain for stroke-patient prediction via transfer learning, feature extraction, and hyperparameter tuning.
+                        </li>
+                        <li>
+                            Instituted data preprocessing and feature engineering on 1 M+ patient records, using a GPT wrapper and BERT to extract insights from 200 k+ semi-structured notes; built an automated ingestion pipeline for future datasets.
+                        </li>
+                        <li>
+                            Generated visualizations and analysis of node embeddings and attention scores to explore feature importance and interactions, informing 10+ case studies on medication and symptom effectiveness in stroke forecasting.
+                        </li>
+                    </ul>
                 </div>
-                <ul class="responsibilities">
-                    <li>
-                        Pioneered and optimized a hypergraph neural network with self-supervised learning in <strong> PyTorch </strong>, achieving a 2% AUC gain for stroke-patient prediction via transfer learning, feature extraction, and hyperparameter tuning.
-                    </li>
-                    <li>
-                        Instituted data preprocessing and feature engineering on 1 M+ patient records, using a GPT wrapper and BERT to extract insights from 200 k+ semi-structured notes; built an automated ingestion pipeline for future datasets.
-                    </li>
-                    <li>
-                        Generated visualizations and analysis of node embeddings and attention scores to explore feature importance and interactions, informing 10+ case studies on medication and symptom effectiveness in stroke forecasting.
-                    </li>
-                </ul>
-            </div>
 
-            <div class="experience-card">
-                <div class="experience-header">
-                    <h3 class="company">United Parcel Service</h3>
-                    <p class="position">Backend Software Engineer Intern</p>
-                    <p class="location">Atlanta, GA</p>
-                    <p class="date">Jun 2023 – Aug 2023</p>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3 class="company">United Parcel Service</h3>
+                        <p class="position">Backend Software Engineer Intern</p>
+                        <p class="location">Atlanta, GA</p>
+                        <p class="date">Jun 2023 – Aug 2023</p>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>
+                            Architected a comprehensive warehouse management system in <strong> React </strong> and <strong>
+                            Spring Boot </strong>, implementing <strong> Agile </strong> workflows to rapidly deploy new features
+                            in response to real-time customer feedback, enhancing order processing efficiency by 40%.
+                        </li>
+                        <li>
+                            Designed a multi-layered database strategy, employing <strong> PostgreSQL </strong> for relational data
+                            storage and <strong> MongoDB </strong> for NoSQL data, where denormalization and indexing cut average
+                            query times by 30%, supporting a 99.9% uptime during peak processing hours.
+                        </li>
+                        <li>
+                            Constructed a high-performance data pipeline for ingesting and validating <strong> Salesforce API </strong>
+                            data, establishing custom <strong> XML/JSON </strong> schemas and automated error-handling routines that
+                            reduced data mismatches by 80%, improving reporting accuracy by 15%.
+                        </li>
+                        <li>
+                            Developed scalable infrastructure with data partitioning, sharding, and caching, optimizing retrieval for high-frequency stock and
+                            order queries, contributed to an overall 25% improvement in backend performance and reduced latency for critical workflows.
+                        </li>
+                        <li>
+                            Implemented robust testing frameworks, incorporating unit testing, integration testing, regression testing, and comprehensive
+                            logging using tools such as <strong> JUnit </strong>, <strong> Mockito </strong>, and <strong> Log4j </strong>. Automated test pipelines within the Azure DevOps workflow, achieving
+                            85% test coverage, reducing deployment errors by 50%, and enhancing issue traceability through detailed log analysis.
+                        </li>
+                    </ul>
                 </div>
-                <ul class="responsibilities">
-                    <li>
-                        Architected a comprehensive warehouse management system in <strong> React </strong> and <strong>
-                        Spring Boot </strong>, implementing <strong> Agile </strong> workflows to rapidly deploy new features
-                        in response to real-time customer feedback, enhancing order processing efficiency by 40%.
-                    </li>
-                    <li>
-                        Designed a multi-layered database strategy, employing <strong> PostgreSQL </strong> for relational data
-                        storage and <strong> MongoDB </strong> for NoSQL data, where denormalization and indexing cut average
-                        query times by 30%, supporting a 99.9% uptime during peak processing hours.
-                    </li>
-                    <li>
-                        Constructed a high-performance data pipeline for ingesting and validating <strong> Salesforce API </strong>
-                        data, establishing custom <strong> XML/JSON </strong> schemas and automated error-handling routines that
-                        reduced data mismatches by 80%, improving reporting accuracy by 15%.
-                    </li>
-                    <li>
-                        Developed scalable infrastructure with data partitioning, sharding, and caching, optimizing retrieval for high-frequency stock and
-                        order queries, contributed to an overall 25% improvement in backend performance and reduced latency for critical workflows.
-                    </li>
-                    <li>
-                        Implemented robust testing frameworks, incorporating unit testing, integration testing, regression testing, and comprehensive
-                        logging using tools such as <strong> JUnit </strong>, <strong> Mockito </strong>, and <strong> Log4j </strong>. Automated test pipelines within the Azure DevOps workflow, achieving
-                        85% test coverage, reducing deployment errors by 50%, and enhancing issue traceability through detailed log analysis.
-                    </li>
-                </ul>
-            </div>
 
-            <div class="experience-card">
-                <div class="experience-header">
-                    <h3 class="company">Balentine</h3>
-                    <p class="position">Quantitative Researcher & Frontend Engineer</p>
-                    <p class="date">Jun 2023 – Aug 2023</p>
+                <div class="experience-card">
+                    <div class="experience-header">
+                        <h3 class="company">Balentine</h3>
+                        <p class="position">Quantitative Researcher & Frontend Engineer</p>
+                        <p class="date">Jun 2023 – Aug 2023</p>
+                    </div>
+                    <ul class="responsibilities">
+                        <li>
+                            Implemented pairwise stock-regression analysis and researched a regularized loss function to reduce transaction volume while maintaining projected revenue; applied boosting and bagging in scikit-learn to lift classification accuracy by 5%.
+                        </li>
+                        <li>
+                            Crafted an interactive dashboard with React and D3.js to visualize predicted stock-index trends, letting users tweak model parameters in real time. Integrated Bloomberg API via AWS Lambda to juxtapose real vs. predicted trends for deeper analysis.
+                        </li>
+                    </ul>
                 </div>
-                <ul class="responsibilities">
-                    <li>
-                        Implemented pairwise stock-regression analysis and researched a regularized loss function to reduce transaction volume while maintaining projected revenue; applied boosting and bagging in scikit-learn to lift classification accuracy by 5%.
-                    </li>
-                    <li>
-                        Crafted an interactive dashboard with React and D3.js to visualize predicted stock-index trends, letting users tweak model parameters in real time. Integrated Bloomberg API via AWS Lambda to juxtapose real vs. predicted trends for deeper analysis.
-                    </li>
-                </ul>
+
             </div>
+        </section>
 
-        </div>
-    </section>
-
-</main><!-- End #main -->
+    </main><!-- End #main -->
+</div>
 
 <!-- Footer HTML content -->
 <div id="footer-placeholder"></div>
-
-<script>
-    fetch('/components/footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer-placeholder').innerHTML = data;
-        });
-</script>
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -211,7 +225,7 @@
 <script src="/assets/vendor/php-email-form/validate.js"></script>
 <script src="/https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
 <!-- Template Main JS File -->
-<script src="/assets/js/main.js"></script>
+<script src="../js/main.js"></script>
 
 </body>
 
