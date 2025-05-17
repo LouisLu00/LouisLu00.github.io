@@ -1,6 +1,6 @@
 :root {
     /* 20% of the viewport width, change to px if you prefer a fixed size */
-    --sidebar-width:           25%;
+    --sidebar-width:           30%;
     /* these get injected by your JS */
     --sidebar-offset-top:      0px;
 }
@@ -17,12 +17,13 @@
     top: var(--sidebar-offset-top);
     width:  var(--sidebar-width);
     overflow-y: auto;
-    background: #fff;
+    background: transparent;
     padding: 5rem;
     z-index: 1000;
     font-family: "Poppins", sans-serif;
     display: inline;
     align-items: center;
+
 }
 
 :root {

@@ -5,6 +5,10 @@
     margin-bottom: 20px;
 }
 
+.content-wrapper {
+    position: relative;
+}
+
 .experience-card {
     background-color: #fff;
     border-radius: 8px;
@@ -23,7 +27,7 @@
 /* company name */
 .company {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 600;
     color: #333;
 }
@@ -31,14 +35,14 @@
 /* role/title */
 .position {
     margin: 4px 0;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 500;
     color: #555;
 }
 
 .location {
     margin: 0 0;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 500;
     color: #555;
 }
@@ -60,5 +64,5 @@
 .responsibilities li {
     margin-bottom: 12px;
     line-height: 1.6;
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
