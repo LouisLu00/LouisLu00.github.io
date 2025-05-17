@@ -1,37 +1,95 @@
+/* Projects container */
 .projects-section {
-    margin: 20px;
-    padding: 20px;
+    margin: 40px auto;
+    padding: 40px 20px;
+    max-width: 1200px;
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
 }
 
+/* Grid layout for articles */
+.projects-section .row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+/* Individual project card */
 .project {
-    margin-bottom: 40px;
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #f9f9f9;
+    background-color: #fdfdfd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.project:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
 }
 
+/* Title link styling */
 .project-title a {
-    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 600;
     color: #2c3e50;
-    font-size: 1.5em;
+    text-decoration: none;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    display: inline-block;
+    transition: color 0.2s ease;
 }
-
 .project-title a:hover {
+    color: #1a242f;
     text-decoration: underline;
 }
 
+/* Description */
 .project-description {
-    font-size: 1em;
-    margin: 10px 0;
+    flex-grow: 1;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4a4a4a;
+    margin-bottom: 16px;
 }
 
+/* Technologies list */
 .project-technologies {
-    list-style-type: none;
-    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.project-technologies li {
+    font-size: 0.85rem;
+    color: #fff;
+    background-color: #7f8c8d;
+    padding: 4px 10px;
+    border-radius: 12px;
+    white-space: nowrap;
+}
+.project-technologies li strong {
+    color: #ecf0f1;
 }
 
-.project-technologies li {
-    font-size: 0.9em;
-    color: #7f8c8d;
+/* Example of a primary‐highlighted badge */
+.project-technologies li.highlight {
+    background-color: #3498db;
+    color: #fff;
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+    .projects-section {
+        padding: 24px 12px;
+    }
+    .project {
+        padding: 16px;
+    }
+    .project-title a {
+        font-size: 1.2rem;
+    }
 }
