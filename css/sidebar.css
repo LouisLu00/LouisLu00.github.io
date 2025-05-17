@@ -1,0 +1,105 @@
+:root {
+    /* 20% of the viewport width, change to px if you prefer a fixed size */
+    --sidebar-width:           25%;
+    /* these get injected by your JS */
+    --sidebar-offset-top:      0px;
+}
+
+/* push only main + footer over */
+.offset-wrapper {
+    margin-left: var(--sidebar-width);
+    box-sizing: border-box;
+}
+/* fixed sidebar between header+breadcrumbs & footer */
+.sidebar {
+    position: fixed;
+    left:   0;
+    top: var(--sidebar-offset-top);
+    width:  var(--sidebar-width);
+    overflow-y: auto;
+    background: #fff;
+    padding: 5rem;
+    z-index: 1000;
+    font-family: "Poppins", sans-serif;
+    display: inline;
+    align-items: center;
+}
+
+:root {
+    --sidebar-primary: #007bff;
+    --sidebar-bg: #ffffff;
+    --sidebar-text: #333333;
+    --sidebar-subtext: #666666;
+    --sidebar-avatar-size: 100%;
+    --social-size: 100%;
+}
+
+/* Avatar */
+.sidebar__avatar {
+    display: block;
+    width: var(--sidebar-avatar-size);
+    height: var(--sidebar-avatar-size);
+    margin: 0 auto 1rem;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--sidebar-bg);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Name & Subtitle */
+.sidebar__name {
+    text-align: center;
+    margin: 0.5rem 0 0.25rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--sidebar-text);
+}
+
+.sidebar p {
+    text-align: center;
+    margin: 0;
+    font-size: 1rem;
+    color: var(--sidebar-subtext);
+}
+
+/* Social Icons Container */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+/* Social Icon Buttons */
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--social-size);
+    height: var(--social-size);
+    background: #f4f4f4;
+    border-radius: 50%;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+/* Iconify Icons */
+.social-links a .iconify {
+    font-size: 1.25rem;
+    color: var(--sidebar-text);
+}
+
+/* Hover States */
+.social-links a:hover {
+    background: var(--sidebar-primary);
+    transform: scale(1.1);
+}
+
+.social-links a:hover .iconify {
+    color: #ffffff;
+}
+
+/* Main Content Shift */
+#main {
+    margin-left: var(--sidebar-width);
+    padding: 2rem 1rem;
+}

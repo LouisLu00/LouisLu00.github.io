@@ -5,16 +5,19 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title> Courses - Haoyuan (Louis) Lu</title>
+    <title>Courses - Haoyuan (Louis) Lu</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
     <link href="/assets/img/favicon.png" rel="icon">
 
-
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|
+         Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|
+         Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+            rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,129 +29,127 @@
 
     <!-- Template Main CSS File -->
     <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/courses.css" rel="stylesheet">
 
-    <!-- =======================================================
-    * Template Name: MeFamily - v4.7.0
-    * Template URL: https://bootstrapmade.com/family-multipurpose-html-bootstrap-template-free/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
+    <!-- Sidebar CSS -->
+    <link href="/css/sidebar.css" rel="stylesheet">
 </head>
 
 <body>
 
-<!-- Header HTML content -->
+<!-- Fixed Header -->
 <div id="header-placeholder"></div>
 
 <script>
-    fetch('/components/header.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('header-placeholder').innerHTML = data;
-        });
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Load header
+        fetch('/components/header.html')
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('header-placeholder').innerHTML = html;
+
+                // 2. Now that the header is in place, and breadcrumbs are in the DOM,
+                //    measure their combined height:
+                const hdr = document.querySelector('#header');
+                const bc  = document.getElementById('breadcrumbs');
+                const totalOffset =
+                    (hdr ? hdr.getBoundingClientRect().height : 0) +
+                    (bc  ? bc .getBoundingClientRect().height : 0);
+
+                document.documentElement.style.setProperty(
+                    '--sidebar-offset-top', `${totalOffset}px`
+                );
+
+                // 3. Finally load the sidebar
+                return fetch('/components/sidebar.html');
+            })
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('sidebar-placeholder').innerHTML = html;
+            })
+            // 4. You can load footer whenever you like
+            .then(() => fetch('/components/footer.html'))
+            .then(r => r.text())
+            .then(html => {
+                document.getElementById('footer-placeholder').innerHTML = html;
+            });
+    });
 </script>
 
-<main id="main">
 
-    <!-- ======= Breadcrumbs ======= -->
-    <section id="breadcrumbs" class="breadcrumbs">
-        <div class="container">
 
-            <div class="d-flex justify-content-between align-items-center">
-                <h2>Courses</h2>
-                <ol>
-                    <li><a href="/index.html">Home</a></li>
-                    <li>Courses</li>
-                </ol>
+<!-- Page wrapper: sidebar + main content -->
+<div class="content-wrapper">
+
+    <!-- Sidebar placeholder -->
+    <div id="sidebar-placeholder"></div>
+
+    <main id="main" class="main-content">
+        <!-- ======= Courses Section ======= -->
+        <section id="Courses" class="Courses">
+            <div class="container">
+                <div class="row">
+                    <div><h2>Columbia University - Columbia Engineering</h2></div>
+                    <div class="Courses">
+                        <h5 class="course-title">Spring 2025</h5>
+                        <p class="coursename"><strong>COMS4118</strong> Operating Systems</p>
+                        <p class="coursename"><strong>COMS4170</strong> User Interface Design</p>
+                        <p class="coursename"><strong>COMS4701</strong> Artificial Intelligence</p>
+                        <p class="coursename"><strong>COMS6111</strong> Advanced Database Systems</p>
+                    </div>
+                    <div class="Courses">
+                        <h5 class="course-title">Fall 2024</h5>
+                        <p class="coursename"><strong>COMS4111</strong> Database Systems</p>
+                        <p class="coursename"><strong>COMS4115</strong> Compilers and Translators</p>
+                        <p class="coursename"><strong>COMS4153</strong> Cloud Computing</p>
+                        <p class="coursename"><strong>COMS4156</strong> Advanced Software Engineering</p>
+                    </div>
+                    <div><h2>Emory University</h2></div>
+                    <div class="Courses">
+                        <h5 class="course-title">Spring 2024</h5>
+                        <p class="coursename"><strong>CS329</strong> Computational Linguistics (NLP)</p>
+                        <p class="coursename"><strong>CS370</strong> Computer Science Practicum</p>
+                        <p class="coursename"><strong>CS355</strong> Advanced Computer Architecture</p>
+                        <p class="coursename"><strong>CS455</strong> Computer Networking</p>
+                        <p class="coursename"><strong>Math345</strong> Mathematical Modeling</p>
+                    </div>
+                    <div class="Courses">
+                        <h5 class="course-title">Fall 2023</h5>
+                        <p class="coursename"><strong>CS377</strong> Database Systems</p>
+                        <p class="coursename"><strong>CS485.</strong> Human AI Interaction</p>
+                        <p class="coursename"><strong>CS534</strong> Machine Learning</p>
+                        <p class="coursename"><strong>QTM340</strong> Data Science with Text (NLP)</p>
+                        <p class="coursename"><strong>QTM350</strong> Cloud Computing</p>
+                    </div>
+                    <div class="Courses">
+                        <h5 class="course-title">Spring 2023</h5>
+                        <p class="coursename"><strong>CS326</strong> Algorithms</p>
+                        <p class="coursename"><strong>CS334</strong> Machine Learning</p>
+                        <p class="coursename"><strong>CS350</strong> System Programming</p>
+                        <p class="coursename"><strong>CS350</strong> Foundations of Mathematics</p>
+                        <p class="coursename"><strong><i>[TA]</i> QTM100</strong> Discrete Mathematics for CS</p>
+                    </div>
+                </div>
             </div>
+        </section>
+    </main>
 
-        </div>
-    </section><!-- End Breadcrumbs -->
+</div><!-- /.content-wrapper -->
 
-    <section id="Courses" class="Courses">
-        <div class="container">
-
-            <div class="row">
-                <p class="preCourse">
-                    Here is a full list of courses I have taken as an undergraduate at Emory University. <br>
-
-                    <i>[TA]</i> represents courses for which I was a Teaching Assistant for.
-                </p>
-
-                <div>
-                    <h2>Columbia University - Columbia Engineering </h2>
-                </div>
-
-                <div class="Courses">
-                    <h5 class="course-title">Fall 2024</h5>
-                    <p class="coursename"><strong>COMS4111</strong> Database Systems</p>
-                    <p class="coursename"><strong>COMS4115</strong> Compilers and Translators</p>
-                    <p class="coursename"><strong>COMS4153</strong> Cloud Computing</p>
-                    <p class="coursename"><strong>COMS4156</strong> Advanced Software Engineering</p>
-                </div>
-
-                <div>
-                    <h2>Emory University </h2>
-                </div>
-
-                <div class="Courses">
-                    <h5 class="course-title">Spring 2024</h5>
-                    <p class="coursename"><strong>CS329</strong> Computational Linguistics (NLP)</p>
-                    <p class="coursename"><strong>CS370</strong> Computer Science Practicum</p>
-                    <p class="coursename"><strong>CS355</strong> Advanced Computer Architecture</p>
-                    <p class="coursename"><strong>CS455</strong> Computer Networking</p>
-                    <p class="coursename"><strong>Math345</strong> Mathematical Modeling</p>
-                </div>
-
-                <div class="Courses">
-                    <h5 class="course-title">Fall 2023</h5>
-                    <p class="coursename"><strong>CS377</strong> Database Systems</p>
-                    <p class="coursename"><strong>CS485.</strong> Human AI Interaction</p>
-                    <p class="coursename"><strong>CS534</strong> Machine Learning</p>
-                    <p class="coursename"><strong>QTM340</strong> Data Science with Text (NLP)</p>
-                    <p class="coursename"><strong>QTM350</strong> Cloud Computing</p>
-                </div>
-
-                <div class="Courses">
-                    <h5 class="course-title">Spring 2023</h5>
-                    <p class="coursename"><strong>CS326</strong> Algorithms</p>
-                    <p class="coursename"><strong>CS334</strong> Machine Learning</p>
-                    <p class="coursename"><strong>CS350</strong> System Programming</p>
-                    <p class="coursename"><strong>CS350</strong> Foundations of Mathematics</p>
-
-                    <p class="coursename"><strong><i>[TA]</i> QTM100.</strong> Discrete Mathematics for CS</p>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-</main><!-- End #main -->
-
-<!-- Footer HTML content -->
+<!-- Footer placeholder -->
 <div id="footer-placeholder"></div>
 
-<script>
-    fetch('/components/footer.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('footer-placeholder').innerHTML = data;
-        });
-</script>
-
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-<!-- Vendor JS Files -->
+<!-- Back to top & Vendor JS -->
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center">
+    <i class="bi bi-arrow-up-short"></i>
+</a>
 <script src="/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="/assets/vendor/glightbox/js/glightbox.min.js"></script>
 <script src="/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="/assets/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="/assets/vendor/php-email-form/validate.js"></script>
 <script src="https://code.iconify.design/2/2.1.2/iconify.min.js"></script>
-
-<!-- Template Main JS File -->
 <script src="/js/main.js"></script>
-
 </body>
 
 </html>

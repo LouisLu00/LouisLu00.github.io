@@ -1,0 +1,64 @@
+.body {
+    background: #fff;
+}
+#header-placeholder {
+    margin-bottom: 20px;
+}
+
+.experience-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    margin-bottom: 32px;
+}
+
+/* header block */
+.experience-header {
+    border-left: 4px solid #2E86AB;
+    padding-left: 16px;
+    margin-bottom: 16px;
+}
+
+/* company name */
+.company {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* role/title */
+.position {
+    margin: 4px 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #555;
+}
+
+.location {
+    margin: 0 0;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #555;
+}
+
+/* date range */
+.date {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #888;
+}
+
+/* responsibilities list */
+.responsibilities {
+    list-style: disc inside;
+    padding-left: 0; /* reset default padding */
+    color: #444;
+}
+
+.responsibilities li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+    font-size: 1.25rem;
+}

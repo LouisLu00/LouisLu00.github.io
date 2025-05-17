@@ -1,0 +1,27 @@
+.coursename {
+    font-size: 1.3rem;
+    padding: 0;
+    margin: 0 0 20px 0;
+    margin-top: -5px;
+    color: #41494C;
+}
+
+.row{
+  border: 0;
+  padding: 0 -10px;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.preCourse {
+    padding: 15px;
+    margin-top: 10px;
+    margin-left: 20px;
+}
+
+.course-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: black;
+}
